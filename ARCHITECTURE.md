@@ -209,6 +209,7 @@ The repository now also includes:
 - `lib/vector/store.ts` for a vector store interface and in-memory adapter
 - `lib/db/client.ts` for PostgreSQL connection setup
 - `app/map/page.tsx` for the first visible knowledge graph surface
+- `app/now/page.tsx` and `app/journey/page.tsx` for the living growth timeline
 - `app/api/ingest/route.ts` for a dry-run ingestion report
 
 ## Design Principles

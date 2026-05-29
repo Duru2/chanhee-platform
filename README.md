@@ -16,6 +16,7 @@ The Next.js layer includes:
 - `app/page.tsx` for the Chanhee OS home
 - `app/blog`, `app/books`, `app/writing`, `app/pte`, `app/projects`, `app/thesis`, `app/videos`, `app/ask`, and `app/community`
 - `app/gardens` for future multi-user growth spaces
+- `app/now` and `app/journey` for the living growth timeline
 - `components/` for reusable UI sections
 - `lib/content/platform.ts` for platform content data
 - `lib/content/archive.ts` for living Blog, Books, Projects, Thesis, and YouTube archive items

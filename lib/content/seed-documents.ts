@@ -1,5 +1,6 @@
 import type { IndexableDocument } from "@/lib/ai/rag";
 import { archiveItems } from "@/lib/content/archive";
+import { journeyEvents, weeklyLogs } from "@/lib/content/journey";
 import { learningCards } from "@/lib/content/learning-hubs";
 
 const learningDocuments: IndexableDocument[] = learningCards.map((card) => ({
@@ -35,7 +36,37 @@ const archiveDocuments: IndexableDocument[] = archiveItems.map((item) => ({
   visibility: "public"
 }));
 
+const journeyDocuments: IndexableDocument[] = journeyEvents.map((event) => ({
+  id: event.id,
+  source: "blog",
+  title: event.title,
+  slug: `journey/${event.id}`,
+  body: [event.summary, `Signal: ${event.signal}`].join("\n\n"),
+  tags: event.tags,
+  createdAt: "2026-05-29",
+  updatedAt: "2026-05-29",
+  visibility: "public"
+}));
+
+const weeklyLogDocuments: IndexableDocument[] = weeklyLogs.map((log) => ({
+  id: log.id,
+  source: "blog",
+  title: log.focus,
+  slug: `now/${log.id}`,
+  body: [
+    `Built: ${log.built}`,
+    `Learned: ${log.learned}`,
+    `Next: ${log.next}`
+  ].join("\n\n"),
+  tags: ["now", "weekly-log", "growth"],
+  createdAt: log.week === "Next" ? "2026-05-29" : log.week,
+  updatedAt: "2026-05-29",
+  visibility: "public"
+}));
+
 export const seedDocuments: IndexableDocument[] = [
   ...learningDocuments,
-  ...archiveDocuments
+  ...archiveDocuments,
+  ...journeyDocuments,
+  ...weeklyLogDocuments
 ];
