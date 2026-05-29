@@ -19,6 +19,7 @@ The Next.js layer includes:
 - `lib/content/platform.ts` for platform content data
 - `lib/ai/rag.ts` for RAG-ready document and chunk types
 - `lib/db/schema.ts` for the first database domain map
+- `db/schema.sql` and `db/seed.sql` for the first PostgreSQL implementation draft
 - `public/assets/hero-workspace.png` for the generated study room hero image
 
 The static fallback includes:
@@ -48,14 +49,14 @@ The emotional goal is simple:
 - Digital Home
 - Now Page
 - Digital Garden
-- Writing Hub
-- PTE Hub
+- Writing Hub with interactive frameworks, reflection prompts, and examples
+- PTE Hub with speaking templates, writing drills, vocabulary strategy, and examples
 - Books
 - Thesis
 - Blog
 - Projects
 - YouTube Library
-- Ask Chanhee AI
+- Ask Chanhee AI with a local seed-based RAG preview endpoint
 - Future Community
 
 ## Mascot And Logo

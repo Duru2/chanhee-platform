@@ -196,6 +196,12 @@ captureFeedback(conversationId, rating, note)
 
 The current `lib/ai/rag.ts` file defines the initial document and chunk shape so Writing Hub, PTE Hub, Books, Thesis, Projects, Blog, and YouTube transcripts can share one indexing path.
 
+The repository now also includes:
+
+- `db/schema.sql` for the first PostgreSQL schema
+- `db/seed.sql` for initial hub and tag data
+- `app/api/ask/route.ts` for a local seed-based RAG preview endpoint
+
 ## Design Principles
 
 - Warm before impressive

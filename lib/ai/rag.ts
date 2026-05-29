@@ -30,6 +30,26 @@ export type DocumentChunk = {
   metadata: Record<string, string | string[]>;
 };
 
+export type RetrievalFilter = {
+  sources?: ContentSource[];
+  tags?: string[];
+  visibility?: IndexableDocument["visibility"];
+};
+
+export type RetrievedContext = {
+  chunk: DocumentChunk;
+  score: number;
+};
+
+export type GroundedAnswer = {
+  answer: string;
+  citations: Array<{
+    documentId: string;
+    title: string;
+    source: ContentSource;
+  }>;
+};
+
 export function chunkDocument(document: IndexableDocument): DocumentChunk[] {
   const sections = document.body
     .split(/\n{2,}/)
@@ -49,6 +69,41 @@ export function chunkDocument(document: IndexableDocument): DocumentChunk[] {
       visibility: document.visibility
     }
   }));
+}
+
+export function filterDocuments(
+  documents: IndexableDocument[],
+  filter: RetrievalFilter = {}
+) {
+  return documents.filter((document) => {
+    const sourceMatch = !filter.sources || filter.sources.includes(document.source);
+    const visibilityMatch = !filter.visibility || filter.visibility === document.visibility;
+    const tagMatch =
+      !filter.tags ||
+      filter.tags.length === 0 ||
+      filter.tags.some((tag) => document.tags.includes(tag));
+
+    return sourceMatch && visibilityMatch && tagMatch;
+  });
+}
+
+export function createCitationAnswer(question: string, contexts: RetrievedContext[]): GroundedAnswer {
+  const citations = contexts.map(({ chunk }) => ({
+    documentId: chunk.documentId,
+    title: chunk.title,
+    source: chunk.source
+  }));
+
+  return {
+    answer:
+      contexts.length === 0
+        ? `I do not have enough Chanhee OS context yet to answer: "${question}".`
+        : `Based on the indexed Chanhee OS archive, start with "${contexts[0].chunk.title}" and connect it to ${contexts
+            .slice(1)
+            .map((context) => `"${context.chunk.title}"`)
+            .join(", ") || "the same source"}.`,
+    citations
+  };
 }
 
 export const ragPipeline = [

@@ -1,12 +1,14 @@
-import { ComingSoonPage } from "@/components/coming-soon-page";
+import { LearningHubPage } from "@/components/learning-hub-page";
+import { writingCards } from "@/lib/content/learning-hubs";
 
 export default function WritingPage() {
   return (
-    <ComingSoonPage
+    <LearningHubPage
       eyebrow="Writing knowledge base"
       title="Writing Hub"
-      description="Writing frameworks, journaling structures, storytelling methods, and communication notes become guided practice."
-      bullets={["Reflection prompts", "Story frameworks", "Journaling systems", "Communication notes"]}
+      intro="Writing frameworks, reflection systems, journaling structures, storytelling methods, and communication notes become guided practice instead of forgotten documents."
+      cards={writingCards}
+      companionNote="Do not wait until the lesson feels impressive. Capture the honest version first, then make it useful."
     />
   );
 }
