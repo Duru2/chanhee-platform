@@ -205,8 +205,11 @@ The repository now also includes:
 - `db/seed.sql` for initial hub and tag data
 - `app/api/ask/route.ts` for a local seed-based RAG preview endpoint
 - `lib/ai/embeddings.ts` for OpenAI embedding generation
+- `lib/ai/ingest.ts` for document chunking and indexing workflow
 - `lib/vector/store.ts` for a vector store interface and in-memory adapter
 - `lib/db/client.ts` for PostgreSQL connection setup
+- `app/map/page.tsx` for the first visible knowledge graph surface
+- `app/api/ingest/route.ts` for a dry-run ingestion report
 
 ## Design Principles
 

@@ -21,10 +21,12 @@ The Next.js layer includes:
 - `lib/content/archive.ts` for living Blog, Books, Projects, Thesis, and YouTube archive items
 - `lib/ai/rag.ts` for RAG-ready document and chunk types
 - `lib/ai/embeddings.ts` for OpenAI embedding generation
+- `lib/ai/ingest.ts` for the ingestion pipeline skeleton
 - `lib/vector/store.ts` for the vector store adapter contract
 - `lib/db/schema.ts` for the first database domain map
 - `lib/db/client.ts` for PostgreSQL connection setup
 - `db/schema.sql` and `db/seed.sql` for the first PostgreSQL implementation draft
+- `app/map` for a searchable Garden Map across seeded knowledge
 - `public/assets/hero-workspace.png` for the generated study room hero image
 
 The static fallback includes:
