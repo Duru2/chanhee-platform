@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: theme("colors.ink");
+  background:
+    radial-gradient(circle at top left, rgba(214, 154, 69, 0.13), transparent 34rem),
+    linear-gradient(180deg, theme("colors.paper"), #f8ecda 44%, #fdf7ed);
+  font-family: var(--font-inter), Inter, sans-serif;
+  letter-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .section-band {
+    @apply px-5 py-16 md:px-16 md:py-24 xl:px-[72px] xl:py-28;
+  }
+
+  .section-heading {
+    @apply mb-8 flex flex-col gap-4 md:mb-11 md:flex-row md:items-end md:justify-between;
+  }
+
+  .section-label {
+    @apply mb-3 text-xs font-black uppercase text-honey;
+  }
+
+  .section-title {
+    @apply font-display text-[2.08rem] font-black leading-none md:text-[2.85rem] xl:text-[3.75rem];
+  }
+
+  .section-copy {
+    @apply text-lg leading-8 text-muted;
+  }
+
+  .warm-card {
+    @apply rounded-lg border border-ink/15 bg-cream/80 shadow-warm;
+  }
+}
