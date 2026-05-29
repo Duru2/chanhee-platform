@@ -15,3 +15,13 @@ values
   ('vocabulary', 'Vocabulary'),
   ('rag', 'RAG')
 on conflict (slug) do nothing;
+
+insert into gardens (slug, title, focus, promise)
+values
+  (
+    'chanhee',
+    'Chanhee OS',
+    'AI, software engineering, UNSW life, books, thesis, faith, and building in public.',
+    'Follow the process of one person learning, building, reflecting, and becoming useful over time.'
+  )
+on conflict (slug) do nothing;

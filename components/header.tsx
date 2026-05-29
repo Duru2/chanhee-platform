@@ -15,6 +15,7 @@ export function Header() {
         <a href="#projects">Projects</a>
         <a href="#youtube">YouTube</a>
         <a href="#assistant">AI</a>
+        <a href="/gardens">Gardens</a>
         <a href="#roadmap">Roadmap</a>
       </nav>
     </header>

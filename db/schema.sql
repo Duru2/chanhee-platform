@@ -17,6 +17,28 @@ create table if not exists profiles (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists gardens (
+  id uuid primary key default gen_random_uuid(),
+  owner_profile_id uuid references profiles(id) on delete cascade,
+  slug text unique not null,
+  title text not null,
+  focus text not null,
+  promise text not null,
+  visibility text not null default 'public' check (visibility in ('public', 'private', 'community')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create table if not exists garden_modules (
+  id uuid primary key default gen_random_uuid(),
+  garden_id uuid not null references gardens(id) on delete cascade,
+  module_type text not null check (module_type in ('blog', 'books', 'writing', 'pte', 'projects', 'thesis', 'videos', 'ask', 'community', 'now')),
+  title text not null,
+  position integer not null default 0,
+  settings jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
 create table if not exists learning_hubs (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
@@ -201,6 +223,7 @@ create table if not exists messages (
 );
 
 create index if not exists idx_hub_lessons_hub_id on hub_lessons(hub_id);
+create index if not exists idx_garden_modules_garden_id on garden_modules(garden_id);
 create index if not exists idx_posts_status on posts(status);
 create index if not exists idx_embeddings_source on embeddings(source);
 create index if not exists idx_embeddings_metadata on embeddings using gin(metadata);

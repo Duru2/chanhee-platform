@@ -129,6 +129,8 @@ The repository has started this migration with:
 ```text
 users
 profiles
+gardens
+garden_modules
 posts
 notes
 books
@@ -162,6 +164,7 @@ Core table responsibilities:
 - `embeddings`: vector metadata and provider references
 - `ai_conversations`: question, retrieved context, answer, feedback
 - `groups`, `discussions`, `comments`: future community layer
+- `gardens`, `garden_modules`: multi-user growth spaces where Chanhee is the first user, not the only user
 
 ## AI Metadata
 
