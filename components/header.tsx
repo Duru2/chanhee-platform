@@ -10,15 +10,15 @@ export function Header() {
         <span>Chanhee OS</span>
       </a>
       <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold">
+        <a href="/dev">Dev</a>
+        <a href="/youtube">YouTube</a>
+        <a href="/writing">Writing</a>
+        <a href="/pte">PTE</a>
+        <a href="/life">Life</a>
+        <a href="/board">Board</a>
         <a href="/now">Now</a>
-        <a href="/journey">Journey</a>
-        <a href="#hubs">Hubs</a>
-        <a href="#projects">Projects</a>
-        <a href="#youtube">YouTube</a>
-        <a href="#assistant">AI</a>
         <a href="/map">Map</a>
-        <a href="/gardens">Gardens</a>
-        <a href="#roadmap">Roadmap</a>
+        <a href="/ask">AI</a>
       </nav>
     </header>
   );

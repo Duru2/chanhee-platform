@@ -15,10 +15,12 @@ The Next.js layer includes:
 
 - `app/page.tsx` for the Chanhee OS home
 - `app/blog`, `app/books`, `app/writing`, `app/pte`, `app/projects`, `app/thesis`, `app/videos`, `app/ask`, and `app/community`
+- `app/dev`, `app/youtube`, `app/life`, `app/board`, and `app/about` for the personal-brand PRD IA
 - `app/gardens` for future multi-user growth spaces
 - `app/now` and `app/journey` for the living growth timeline
 - `components/` for reusable UI sections
 - `lib/content/platform.ts` for platform content data
+- `lib/content/brand.ts` for Chanhee Lee personal branding, proof cards, and hub taxonomy
 - `lib/content/archive.ts` for living Blog, Books, Projects, Thesis, and YouTube archive items
 - `lib/ai/rag.ts` for RAG-ready document and chunk types
 - `lib/ai/embeddings.ts` for OpenAI embedding generation
@@ -26,6 +28,7 @@ The Next.js layer includes:
 - `lib/vector/store.ts` for the vector store adapter contract
 - `lib/db/schema.ts` for the first database domain map
 - `lib/db/client.ts` for PostgreSQL connection setup
+- `lib/supabase/client.ts` for Supabase browser and service clients
 - `db/schema.sql` and `db/seed.sql` for the first PostgreSQL implementation draft
 - `app/map` for a searchable Garden Map across seeded knowledge
 - `public/assets/hero-workspace.png` for the generated study room hero image
@@ -55,6 +58,11 @@ The emotional goal is simple:
 ## Core Sections
 
 - Digital Home
+- Dev Hub
+- YouTube Hub
+- Life Graph
+- Visitor Board
+- Recruiter Snapshot
 - Now Page
 - Digital Garden
 - Writing Hub with interactive frameworks, reflection prompts, and examples
@@ -85,9 +93,11 @@ The production platform is being shaped around:
 - TypeScript
 - Tailwind CSS
 - Framer Motion
-- PostgreSQL
+- Supabase Postgres
+- Supabase Auth
+- Supabase Storage
 - OpenAI
-- Vector database
+- Supabase pgvector
 - RAG architecture
 - Clerk or Auth.js
 - S3-compatible storage

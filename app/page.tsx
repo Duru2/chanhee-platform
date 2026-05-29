@@ -1,4 +1,5 @@
 import { AssistantBlueprint } from "@/components/assistant-blueprint";
+import { BrandHQ } from "@/components/brand-hq";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { HubGrid } from "@/components/hub-grid";
@@ -25,6 +26,9 @@ export default function HomePage() {
               around a real person growing over time.
             </p>
           </section>
+        </MotionReveal>
+        <MotionReveal>
+          <BrandHQ />
         </MotionReveal>
         <MotionReveal>
           <HubGrid />

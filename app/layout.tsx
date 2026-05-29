@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, Nunito } from "next/font/google";
+import { personJsonLd, siteConfig } from "@/lib/seo/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,9 +15,25 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Chanhee OS",
-  description:
-    "A living digital home for learning, building, reflecting, and growing in public."
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description
+  }
 };
 
 export default function RootLayout({
@@ -26,7 +43,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${nunito.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${nunito.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

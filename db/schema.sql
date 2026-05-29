@@ -1,4 +1,5 @@
 create extension if not exists pgcrypto;
+create extension if not exists vector;
 
 create table if not exists users (
   id uuid primary key default gen_random_uuid(),
@@ -48,6 +49,25 @@ create table if not exists learning_hubs (
   created_at timestamptz not null default now()
 );
 
+create table if not exists content_items (
+  id uuid primary key default gen_random_uuid(),
+  owner_profile_id uuid references profiles(id) on delete set null,
+  type text not null check (type in ('project', 'tech_blog', 'dev_log', 'system_design', 'video', 'writing', 'pte', 'life_event', 'board_post')),
+  title text not null,
+  slug text unique not null,
+  summary text not null,
+  body text,
+  status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
+  visibility text not null default 'public' check (visibility in ('public', 'private', 'community')),
+  source_url text,
+  canonical_url text,
+  operator_note text,
+  recruiter_highlight text,
+  published_at timestamptz,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
 create table if not exists hub_lessons (
   id uuid primary key default gen_random_uuid(),
   hub_id uuid not null references learning_hubs(id) on delete cascade,
@@ -61,6 +81,35 @@ create table if not exists hub_lessons (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   unique (hub_id, slug)
+);
+
+create table if not exists writing_posts (
+  id uuid primary key default gen_random_uuid(),
+  content_item_id uuid not null references content_items(id) on delete cascade,
+  writing_type text not null check (writing_type in ('movie_review', 'song_review', 'anime_review', 'bible_study', 'essay', 'reading_log')),
+  rating numeric(3, 1),
+  related_work text,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists pte_entries (
+  id uuid primary key default gen_random_uuid(),
+  content_item_id uuid not null references content_items(id) on delete cascade,
+  entry_type text not null check (entry_type in ('study_log', 'exam_review', 'score', 'expression', 'speaking_template', 'writing_template')),
+  target_score integer,
+  actual_score integer,
+  exam_date date,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists life_events (
+  id uuid primary key default gen_random_uuid(),
+  content_item_id uuid not null references content_items(id) on delete cascade,
+  event_type text not null check (event_type in ('australia', 'unsw', 'part_time_work', 'internship', 'job_prep', 'growth')),
+  started_at date,
+  ended_at date,
+  location text,
+  created_at timestamptz not null default now()
 );
 
 create table if not exists posts (
@@ -127,6 +176,19 @@ create table if not exists videos (
   created_at timestamptz not null default now()
 );
 
+create table if not exists board_posts (
+  id uuid primary key default gen_random_uuid(),
+  content_item_id uuid references content_items(id) on delete cascade,
+  author_name text not null,
+  author_email text,
+  post_type text not null default 'guestbook' check (post_type in ('guestbook', 'question', 'feedback')),
+  body text not null,
+  operator_reply text,
+  status text not null default 'pending' check (status in ('pending', 'published', 'hidden')),
+  created_at timestamptz not null default now(),
+  replied_at timestamptz
+);
+
 create table if not exists thesis_updates (
   id uuid primary key default gen_random_uuid(),
   slug text unique not null,
@@ -151,6 +213,17 @@ create table if not exists content_tags (
   unique (tag_id, content_type, content_id)
 );
 
+create table if not exists external_links (
+  id uuid primary key default gen_random_uuid(),
+  content_type text not null,
+  content_id uuid not null,
+  provider text not null check (provider in ('github', 'youtube', 'linkedin', 'notion', 'resume', 'demo', 'other')),
+  label text not null,
+  url text not null,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
 create table if not exists embeddings (
   id uuid primary key default gen_random_uuid(),
   content_type text not null,
@@ -160,6 +233,7 @@ create table if not exists embeddings (
   title text not null,
   content text not null,
   embedding_model text not null,
+  embedding vector(1536),
   vector_ref text,
   metadata jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now(),
@@ -224,7 +298,30 @@ create table if not exists messages (
 
 create index if not exists idx_hub_lessons_hub_id on hub_lessons(hub_id);
 create index if not exists idx_garden_modules_garden_id on garden_modules(garden_id);
+create index if not exists idx_content_items_type on content_items(type);
+create index if not exists idx_content_items_visibility on content_items(visibility);
 create index if not exists idx_posts_status on posts(status);
 create index if not exists idx_embeddings_source on embeddings(source);
 create index if not exists idx_embeddings_metadata on embeddings using gin(metadata);
 create index if not exists idx_comments_content on comments(content_type, content_id);
+
+alter table profiles enable row level security;
+alter table content_items enable row level security;
+alter table board_posts enable row level security;
+alter table comments enable row level security;
+alter table ai_conversations enable row level security;
+
+drop policy if exists "Public can read published content" on content_items;
+create policy "Public can read published content"
+  on content_items for select
+  using (visibility = 'public' and status = 'published');
+
+drop policy if exists "Public can read published board posts" on board_posts;
+create policy "Public can read published board posts"
+  on board_posts for select
+  using (status = 'published');
+
+drop policy if exists "Visitors can create pending board posts" on board_posts;
+create policy "Visitors can create pending board posts"
+  on board_posts for insert
+  with check (status = 'pending');

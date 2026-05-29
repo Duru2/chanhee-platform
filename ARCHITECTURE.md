@@ -17,6 +17,9 @@ The system should support three layers:
 ### Content
 
 - Blog posts
+- Dev projects and system design notes
+- Visitor board posts and Q&A
+- Personal brand proof cards
 - Book notes
 - Writing frameworks
 - PTE lessons
@@ -132,6 +135,11 @@ profiles
 gardens
 garden_modules
 posts
+content_items
+writing_posts
+pte_entries
+life_events
+board_posts
 notes
 books
 book_notes
@@ -145,6 +153,7 @@ tags
 content_tags
 embeddings
 ai_conversations
+external_links
 comments
 groups
 group_members
@@ -159,12 +168,15 @@ The first implementation can start with plain PostgreSQL tables and move to an O
 Core table responsibilities:
 
 - `posts`: essays, reflections, build notes
+- `content_items`: shared base record for projects, videos, writing, PTE, life events, and board posts
+- `writing_posts`, `pte_entries`, `life_events`, `board_posts`: PRD-specific content surfaces
 - `notes`: atomic knowledge units
 - `hub_lessons`: interactive Writing Hub and PTE Hub lessons
 - `embeddings`: vector metadata and provider references
 - `ai_conversations`: question, retrieved context, answer, feedback
 - `groups`, `discussions`, `comments`: future community layer
 - `gardens`, `garden_modules`: multi-user growth spaces where Chanhee is the first user, not the only user
+- `external_links`: GitHub, YouTube, LinkedIn, Notion, demo, resume, and other integration links
 
 ## AI Metadata
 
