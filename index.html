@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chanhee Platform</title>
+    <meta
+      name="description"
+      content="Chanhee's personal AI-powered growth platform for learning, projects, content, and community."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Chanhee Platform home">
+        <span class="brand-mark">C</span>
+        <span>Chanhee Platform</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#now">Now</a>
+        <a href="#projects">Projects</a>
+        <a href="#knowledge">Knowledge</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/hero-workspace.png" alt="">
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Personal digital headquarters</p>
+          <h1 id="hero-title">Chanhee Platform</h1>
+          <p class="hero-copy">
+            A living system where software engineering, AI building, research, projects,
+            books, faith, and university life become public knowledge and community value.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#now">Enter HQ</a>
+            <a class="secondary-action" href="#roadmap">View mission</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission-band" aria-label="Platform mission">
+        <div>
+          <p class="section-label">Mission</p>
+          <h2>Document the process, not just the outcome.</h2>
+        </div>
+        <p>
+          The platform starts as Chanhee's public source of truth and gradually
+          becomes a growth space for builders and learners to share notes, projects,
+          discussions, and personal knowledge systems.
+        </p>
+      </section>
+
+      <section class="hq-grid" id="now" aria-labelledby="now-title">
+        <div class="section-heading">
+          <p class="section-label">Phase 1</p>
+          <h2 id="now-title">Personal Digital HQ</h2>
+        </div>
+        <article class="status-panel">
+          <div>
+            <p class="panel-kicker">Now</p>
+            <h3>Software engineering student at UNSW, building in public.</h3>
+          </div>
+          <ul class="status-list">
+            <li><span>Focus</span><strong>AI products, full-stack systems, research</strong></li>
+            <li><span>Content</span><strong>Blog, YouTube, newsletter, book notes</strong></li>
+            <li><span>Signal</span><strong>Learning, building, failing, improving</strong></li>
+          </ul>
+        </article>
+        <article class="timeline-panel">
+          <p class="panel-kicker">Career Timeline</p>
+          <ol class="timeline">
+            <li><span>UNSW</span> Software engineering foundations and research habits.</li>
+            <li><span>Builder</span> Full-stack projects, Chrome extensions, AI experiments.</li>
+            <li><span>Startup</span> Product contribution, shipping cadence, practical learning.</li>
+            <li><span>Creator</span> Public notes, videos, books, and career reflections.</li>
+          </ol>
+        </article>
+      </section>
+
+      <section class="content-map" id="knowledge" aria-labelledby="knowledge-title">
+        <div class="section-heading">
+          <p class="section-label">Knowledge system</p>
+          <h2 id="knowledge-title">Reusable Learning Library</h2>
+        </div>
+        <div class="map-grid">
+          <article class="map-item">
+            <span>01</span>
+            <h3>Book Notes</h3>
+            <p>Atomic summaries, highlights, applications, and reading trails.</p>
+          </article>
+          <article class="map-item">
+            <span>02</span>
+            <h3>Research Notes</h3>
+            <p>Thesis progress, paper reviews, experiments, and open questions.</p>
+          </article>
+          <article class="map-item">
+            <span>03</span>
+            <h3>Programming Notes</h3>
+            <p>Patterns, bugs, architecture decisions, and practical tutorials.</p>
+          </article>
+          <article class="map-item">
+            <span>04</span>
+            <h3>Career Reflections</h3>
+            <p>UNSW life, internship lessons, productivity systems, and growth logs.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-label">Build log</p>
+          <h2 id="projects-title">Projects Become Content</h2>
+        </div>
+        <div class="project-table" role="table" aria-label="Project channels">
+          <div role="row" class="table-header">
+            <span role="columnheader">Channel</span>
+            <span role="columnheader">Output</span>
+            <span role="columnheader">Platform Role</span>
+          </div>
+          <div role="row">
+            <span role="cell">Side Projects</span>
+            <span role="cell">Case studies, demos, code notes</span>
+            <span role="cell">Proof of skill and learning velocity</span>
+          </div>
+          <div role="row">
+            <span role="cell">Chrome Extensions</span>
+            <span role="cell">Product pages, changelogs, tutorials</span>
+            <span role="cell">Practical distribution and user feedback</span>
+          </div>
+          <div role="row">
+            <span role="cell">AI Experiments</span>
+            <span role="cell">RAG prototypes, prompts, evaluations</span>
+            <span role="cell">Foundation for Ask Chanhee AI</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="youtube-engine" id="youtube" aria-labelledby="youtube-title">
+        <div class="section-heading">
+          <p class="section-label">Content engine</p>
+          <h2 id="youtube-title">YouTube Library</h2>
+        </div>
+        <div class="video-shell">
+          <div class="video-toolbar" aria-label="Video categories">
+            <button class="filter active" type="button" data-filter="All">All Videos</button>
+            <button class="filter" type="button" data-filter="AI">AI</button>
+            <button class="filter" type="button" data-filter="Software Engineering">Software Engineering</button>
+            <button class="filter" type="button" data-filter="UNSW">UNSW</button>
+            <button class="filter" type="button" data-filter="Career">Career</button>
+            <button class="filter" type="button" data-filter="Books">Books</button>
+            <button class="filter" type="button" data-filter="Faith">Faith</button>
+          </div>
+          <div class="video-grid" aria-live="polite">
+            <article class="video-card" data-category="AI">
+              <div class="thumb ai">AI</div>
+              <h3>Building a Personal RAG Assistant</h3>
+              <p>Turning notes, posts, videos, and projects into an answerable knowledge base.</p>
+            </article>
+            <article class="video-card" data-category="Software Engineering">
+              <div class="thumb se">SE</div>
+              <h3>What I Learned Shipping a Full-Stack Project</h3>
+              <p>Architecture choices, bugs, tradeoffs, and the habits that made shipping possible.</p>
+            </article>
+            <article class="video-card" data-category="UNSW">
+              <div class="thumb unsw">UNSW</div>
+              <h3>A Week as a UNSW Software Engineering Student</h3>
+              <p>Lectures, assignments, deep work blocks, research, and life in Australia.</p>
+            </article>
+            <article class="video-card" data-category="Books">
+              <div class="thumb books">BOOK</div>
+              <h3>Books That Changed How I Build</h3>
+              <p>Reading notes connected to productivity, faith, career, and technical depth.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-layer" aria-labelledby="ai-title">
+        <div class="section-heading">
+          <p class="section-label">Phase 4</p>
+          <h2 id="ai-title">AI Layer Blueprint</h2>
+        </div>
+        <div class="ai-flow" aria-label="AI architecture flow">
+          <span>Content</span>
+          <span>Indexing</span>
+          <span>Vector DB</span>
+          <span>Knowledge Graph</span>
+          <span>Ask Chanhee AI</span>
+        </div>
+      </section>
+
+      <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="section-heading">
+          <p class="section-label">Roadmap</p>
+          <h2 id="roadmap-title">From Personal HQ to Growth Platform</h2>
+        </div>
+        <div class="roadmap-grid">
+          <article><span>01</span><h3>Launch Website</h3><p>Home, About, Projects, Blog, Books, Now, Career Timeline.</p></article>
+          <article><span>02</span><h3>Knowledge Base</h3><p>Searchable notes across books, research, programming, and reflections.</p></article>
+          <article><span>03</span><h3>Content Ecosystem</h3><p>Blog, YouTube, newsletter, extensions, and side projects connected back here.</p></article>
+          <article><span>04</span><h3>AI Assistants</h3><p>Book, career, learning, and personal knowledge assistants powered by RAG.</p></article>
+          <article><span>05</span><h3>Community</h3><p>Accounts, profiles, comments, groups, discussions, and book clubs.</p></article>
+          <article><span>06</span><h3>Platform</h3><p>Tools for other builders to track books, write notes, and grow publicly.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Chanhee Platform</span>
+      <span>Life becomes content. Content becomes knowledge. Knowledge becomes community.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
