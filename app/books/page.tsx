@@ -1,12 +1,14 @@
-import { ComingSoonPage } from "@/components/coming-soon-page";
+import { ArchivePage } from "@/components/archive-page";
+import { bookItems } from "@/lib/content/archive";
 
 export default function BooksPage() {
   return (
-    <ComingSoonPage
+    <ArchivePage
       eyebrow="Reading trails"
       title="Books"
-      description="Book notes should connect ideas to projects, habits, research, and real decisions."
-      bullets={["Highlights", "Atomic takeaways", "Applications", "Reading paths"]}
+      intro="Book notes connect ideas to projects, habits, research, faith, and real decisions."
+      kind="book"
+      items={bookItems}
     />
   );
 }

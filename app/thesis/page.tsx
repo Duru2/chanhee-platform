@@ -1,12 +1,14 @@
-import { ComingSoonPage } from "@/components/coming-soon-page";
+import { ArchivePage } from "@/components/archive-page";
+import { thesisItems } from "@/lib/content/archive";
 
 export default function ThesisPage() {
   return (
-    <ComingSoonPage
+    <ArchivePage
       eyebrow="Research archive"
       title="Thesis"
-      description="Research progress, paper notes, methods, experiments, and open questions documented over time."
-      bullets={["Paper notes", "Weekly updates", "Methods", "Experiment logs"]}
+      intro="Research progress, paper notes, methods, experiments, and open questions documented over time."
+      kind="thesis"
+      items={thesisItems}
     />
   );
 }

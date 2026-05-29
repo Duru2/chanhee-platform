@@ -17,8 +17,12 @@ The Next.js layer includes:
 - `app/blog`, `app/books`, `app/writing`, `app/pte`, `app/projects`, `app/thesis`, `app/videos`, `app/ask`, and `app/community`
 - `components/` for reusable UI sections
 - `lib/content/platform.ts` for platform content data
+- `lib/content/archive.ts` for living Blog, Books, Projects, Thesis, and YouTube archive items
 - `lib/ai/rag.ts` for RAG-ready document and chunk types
+- `lib/ai/embeddings.ts` for OpenAI embedding generation
+- `lib/vector/store.ts` for the vector store adapter contract
 - `lib/db/schema.ts` for the first database domain map
+- `lib/db/client.ts` for PostgreSQL connection setup
 - `db/schema.sql` and `db/seed.sql` for the first PostgreSQL implementation draft
 - `public/assets/hero-workspace.png` for the generated study room hero image
 

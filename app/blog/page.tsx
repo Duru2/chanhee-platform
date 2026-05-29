@@ -1,12 +1,14 @@
-import { ComingSoonPage } from "@/components/coming-soon-page";
+import { ArchivePage } from "@/components/archive-page";
+import { blogItems } from "@/lib/content/archive";
 
 export default function BlogPage() {
   return (
-    <ComingSoonPage
+    <ArchivePage
       eyebrow="Growth essays"
       title="Blog"
-      description="A home for reflections, build notes, personal systems, and lessons learned in public."
-      bullets={["Learning logs", "Career reflections", "Project essays", "Faith and formation"]}
+      intro="A home for reflections, build notes, personal systems, and lessons learned in public."
+      kind="blog"
+      items={blogItems}
     />
   );
 }

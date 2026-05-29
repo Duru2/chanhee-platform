@@ -201,6 +201,9 @@ The repository now also includes:
 - `db/schema.sql` for the first PostgreSQL schema
 - `db/seed.sql` for initial hub and tag data
 - `app/api/ask/route.ts` for a local seed-based RAG preview endpoint
+- `lib/ai/embeddings.ts` for OpenAI embedding generation
+- `lib/vector/store.ts` for a vector store interface and in-memory adapter
+- `lib/db/client.ts` for PostgreSQL connection setup
 
 ## Design Principles
 

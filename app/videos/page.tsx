@@ -1,12 +1,14 @@
-import { ComingSoonPage } from "@/components/coming-soon-page";
+import { ArchivePage } from "@/components/archive-page";
+import { videoItems } from "@/lib/content/archive";
 
 export default function VideosPage() {
   return (
-    <ComingSoonPage
+    <ArchivePage
       eyebrow="Content engine"
       title="YouTube"
-      description="Videos become entry points into the wider learning archive, not isolated content."
-      bullets={["AI", "Software Engineering", "UNSW", "Career", "Books", "Faith"]}
+      intro="Videos become entry points into the wider learning archive, not isolated content."
+      kind="video"
+      items={videoItems}
     />
   );
 }
